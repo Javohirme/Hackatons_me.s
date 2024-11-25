@@ -1,0 +1,202 @@
+{% extends "base.html" %} {% load static %}
+<!--  -->
+{% block title %} Event Detail Page {% endblock title %}
+
+<!--  -->
+{% block content %}
+<!--  -->
+<div class="container">
+  <ul class="nav nav-tabs" id="eventTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active present_btn"
+        id="overview-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#overview"
+        type="button"
+        role="tab"
+        aria-controls="overview"
+        aria-selected="true"
+      >
+        Overview
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link present_btn"
+        id="ideas-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#ideas"
+        type="button"
+        role="tab"
+        aria-controls="ideas"
+        aria-selected="false"
+      >
+        Ideas
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link present_btn"
+        id="comments-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#comments"
+        type="button"
+        role="tab"
+        aria-controls="comments"
+        aria-selected="false"
+      >
+        Comments
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3" id="myTabContent">
+    <!-- Overview Tab -->
+    <div
+      class="tab-pane fade show active"
+      id="overview"
+      role="tabpanel"
+      aria-labelledby="overview-tab"
+    >
+      <div class="tab-pane_ovw row">
+        <div class="imgBox_event_detail col-6">
+          <img
+            src="{{ event.get_image_url }}"
+            alt="{{ event.title }}"
+            class="img-fluid rounded mx-auto"
+          />
+        </div>
+        <h4 class="tt tt-bold text-center col-6">{{ event.title }}</h4>
+        <p class="ovw mt-4 text-center">{{ event.overview }}</p>
+      </div>
+    </div>
+
+    <!-- Ideas Tab -->
+
+    <div
+      class="tab-pane fade ideas-tab-content"
+      id="ideas"
+      role="tabpanel"
+      aria-labelledby="ideas-tab"
+    >
+      {% if request.user.is_authenticated %}
+      <div class="container ideas-form-container">
+        <h3 class="text-center tt tt-sm">Submit Your Idea</h3>
+        <form
+          method="post"
+          action="{% url 'events:create-idea' event.id %}"
+          class="p-4 ideas-form"
+        >
+          {% csrf_token %}
+
+          <!-- Non-field errors -->
+          {% if idea_form.non_field_errors %}
+          <div class="alert alert-danger ideas-error" role="alert">
+            {{ idea_form.non_field_errors }}
+          </div>
+          {% endif %}
+
+          <!-- Form fields -->
+          {% for field in idea_form %}
+          <div class="row justify-content-center mb-3 ideas-form-row">
+            <div
+              class="col-lg-6 col-md-8 col-sm-10 d-flex justify-content-center align-items-center"
+            >
+              <div class="row">
+                <label
+                  for="{{ field.id_for_label }}"
+                  class="form-label fw-semibold ideas-form-label"
+                >
+                  {{ field.label }}
+                </label>
+                {{ field }} {% if field.help_text %}
+                <small class="form-text text-muted ideas-help-text">
+                  {{ field.help_text }}
+                </small>
+                {% endif %} {% if field.errors %}
+                <div class="invalid-feedback d-block ideas-invalid-feedback">
+                  {{ field.errors }}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <!-- Submit button -->
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+              <button
+                type="submit"
+                class="btn btn-primary mt-4 w-100 rounded-pill ideas-submit-btn"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Comments Tab -->
+    <div
+      class="tab-pane fade"
+      id="comments"
+      role="tabpanel"
+      aria-labelledby="comments-tab"
+    >
+      {% if ideas %}
+      <!-- List of Ideas -->
+      <div class="row d-flex justify-content-center align-items-center">
+        {% for idea in ideas %}
+        <div class="cart_ideas col-12 col-md-6">
+          <h5>
+            {{ idea.title }}
+            <div class="d-flex justify-content-center align-items-center">
+              <span class="badge"> {{ idea.upvotes.count }} </span>
+              <!-- Like Button Form -->
+              <form
+                method="post"
+                action="{% url 'events:upvote-idea' event_id=event.id idea_id=idea.id %}"
+                style="display: inline"
+              >
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="{% if idea.is_liked %}btn-success{% else %}btn-outline-success{% endif %}"
+                >
+                  {% if idea.is_liked %}
+                  <i class="fa-solid fa-heart"></i>
+                  {% else %}
+                  <i class="fa-regular fa-heart"></i>
+                  {% endif %}
+                </button>
+              </form>
+            </div>
+          </h5>
+          <p>{{ idea.overview }}</p>
+
+          {% if idea.owner == request.user %}
+          <form
+            action="{% url 'events:delete-idea' idea.id %}"
+            method="post"
+            style="display: inline"
+            class="d-flex justify-content-end align-items-center"
+          >
+            {% csrf_token %}
+            <button type="submit" class="btn btn_idea_dl">Delete</button>
+          </form>
+          {% endif %}
+        </div>
+        {% endfor %} {% else %}
+      </div>
+      <p>Comments will go here...</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock content %}

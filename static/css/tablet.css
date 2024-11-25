@@ -1,0 +1,33 @@
+/* tablet version: [576px; 767px] */
+@media (max-width: 767.5px) {
+  /* header start */
+  .header {
+    padding: 30px 0;
+  }
+
+  .header__logo {
+    margin: 0 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .btn__account {
+    padding: 0;
+    margin: 10px;
+    width: 30px;
+  }
+  /* header end */
+
+  /* cart_body start*/
+  .card-body p {
+    height: 40%;
+  }
+  /* cart_body end*/
+  
+}
+/* =================================  Contact  start =================================  */
+@media (min-width: 768px) {
+  .custom-form button {
+    font-size: 1.1rem;
+  }
+}
+/* =================================  Contact  end =================================  */

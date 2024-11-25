@@ -1,0 +1,231 @@
+/* variables */
+
+:root {
+  --primary_green: #198754;
+  --white: #f6faf5;
+  --blue: #2a678a;
+  --primary_blue: #144460;
+  --black: #252525;
+  --gray: #a79997;
+  --deepred: #c91a1a;
+  --orange: #e2b013;
+  --chocolate: #ff6a14;
+  --deep_teal: #033e3e;
+  --ash-gray: #666362;
+  --charcoal_blue: #36454f;
+}
+
+/* font */
+@font-face {
+  font-family: "Matemasie400";
+  src: url("../font/Matemasie-Regular.eot");
+  src: url("../font/Matemasie-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/Matemasie-Regular.woff2") format("woff2"),
+    url("../font/Matemasie-Regular.woff") format("woff"),
+    url("../font/Matemasie-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MochiyPopOne400";
+  src: url("../font/MochiyPopOne-Regular.eot");
+  src: url("../font/MochiyPopOne-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../font/MochiyPopOne-Regular.woff2") format("woff2"),
+    url("../font/MochiyPopOne-Regular.woff") format("woff"),
+    url("../font/MochiyPopOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto400";
+  src: url("../font/NotoSerif-Regular.eot");
+  src: url("../font/NotoSerif-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/NotoSerif-Regular.woff2") format("woff2"),
+    url("../font/NotoSerif-Regular.woff") format("woff"),
+    url("../font/NotoSerif-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto600";
+  src: url("../font/NotoSerif-SemiBold.eot");
+  src: url("../font/NotoSerif-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../font/NotoSerif-SemiBold.woff2") format("woff2"),
+    url("../font/NotoSerif-SemiBold.woff") format("woff"),
+    url("../font/NotoSerif-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto800";
+  src: url("../font/NotoSerif-ExtraBold.eot");
+  src: url("../font/NotoSerif-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("../font/NotoSerif-ExtraBold.woff2") format("woff2"),
+    url("../font/NotoSerif-ExtraBold.woff") format("woff"),
+    url("../font/NotoSerif-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RocknRollOne";
+  src: url("../font/RocknRollOne-Regular.eot");
+  src: url("../font/NotoSerif-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/RocknRollOne-Regular.woff2") format("woff2"),
+    url("../font/RocknRollOne-Regular.woff") format("woff"),
+    url("../font/RocknRollOne-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pro400";
+  src: url("../font/ProductSans-Regular.eot");
+  src: url("../font/ProductSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/ProductSans-Regular.woff2") format("woff2"),
+    url("../font/ProductSans-Regular.woff") format("woff"),
+    url("../font/ProductSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* BEM | Block__Element--Modifier */
+
+/* tt - title */
+
+.tt {
+  font-family: "Noto800";
+  font-weight: 800;
+  font-size: 48px;
+  line-height: normal;
+  color: var(--black);
+  margin: 0;
+}
+
+.tt-sm {
+  font-size: 25px;
+  color: var(--primary_blue);
+}
+
+.tt-bold {
+  margin: 20px;
+  font-family: "Noto800";
+  font-weight: 800;
+  color: var(--primary_blue);
+  text-align: left;
+}
+
+.tt-thin {
+  font-family: "Noto600";
+  font-weight: 600;
+}
+
+.tt-team-bage {
+  font-family: "RocknRollOne";
+  font-weight: 100;
+  width: calc(100% - 40px);
+  background-color: #c91a1acb;
+  letter-spacing: 3px;
+}
+
+.tt-ds {
+  font-family: "RocknRollOne";
+  color: #144460;
+  text-align: center;
+}
+/* ovw - overview */
+.ovw {
+  font-family: "RocknRollOne";
+  line-height: 1.6;
+  color: var(--black);
+}
+
+/* ds - description */
+.ds {
+  font-family: "Pro400";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--gray);
+  margin: 0;
+}
+/* bt - button */
+.btn_cart {
+  color: var(--white);
+  background-color: var(--charcoal_blue);
+}
+.btn_cart:hover {
+  color: var(--white);
+  background-color: var(--ash-gray);
+}
+
+.btn__account {
+  font-family: "MochiyPopOne400";
+  font-weight: normal;
+  border-color: var(--chocolate);
+  color: var(--chocolate);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.btn__account:hover {
+  background-color: var(--chocolate);
+  transition-duration: 0.2s;
+}
+.btn_add,
+.btn_out {
+  margin: 6px;
+}
+
+.btn-login {
+  color: var(--white);
+  background-color: var(--primary_blue);
+}
+.btn-login:hover {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.btn-register {
+  color: var(--white);
+  background-color: var(--orange);
+}
+.btn-register:hover {
+  color: var(--white);
+  background-color: var(--chocolate);
+}
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check) + .btn:active {
+  color: var(--white);
+  background-color: var(--charcoal_blue);
+  border-color: transparent;
+  transition-duration: 0.2s;
+}
+
+.btn_idea_dl {
+  font-family: "MochiyPopOne400";
+  font-size: small;
+  color: var(--white);
+  background-color: #f7686f;
+}
+
+.btn_idea_dl:hover {
+  color: var(--white);
+  background-color: #ed3e47;
+}

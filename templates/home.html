@@ -1,0 +1,252 @@
+{% extends "base.html" %} {% load static %}
+<!--  -->
+{% block title %} Hackogi {% endblock title %}
+<!--  -->
+{% block content %}
+<div class="container">
+  <ul>
+    <!-- Active Hackathons Section -->
+    <h2 class="tt-bold tt-lg">Active Hackathons</h2>
+    <div class="container_slider">
+      {% if active_hackathons %}
+      <section
+        id="mySliderActive"
+        class="splide"
+        aria-label="Active Hackathons"
+      >
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <i class="fa-solid fa-chevron-left fa-2xl"></i>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <i class="fa-solid fa-chevron-right fa-2xl"></i>
+          </button>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for hackathon in active_hackathons %}
+            <li class="splide__slide card">
+              <div class="box row">
+                <div class="imgBox">
+                  <img
+                    src="{% if hackathon.image %}{{ hackathon.image.url }}{% else %}{% static 'images/none_image.png' %}{% endif %}"
+                    alt="{{ hackathon.title }}"
+                  />
+                </div>
+                <div class="content col-md-6">
+                  <h2 class="tt-thin">{{ hackathon.title }}</h2>
+                  <a href="{% url 'events:event-detail' hackathon.id %}"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
+              <div class="card-body col-md-6">
+                <h5 class="card-title tt-thin">{{ hackathon.title }}</h5>
+                <p>{{ hackathon.summary }}</p>
+                <a
+                  href="{% url 'events:event-detail' hackathon.id %}"
+                  class="btn btn_cart"
+                  >Go somewhere</a
+                >
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+      {% else %}
+      <p class="no-hackathons-message ds">
+        No active hackathons at the moment.
+      </p>
+      {% endif %}
+    </div>
+
+    <!-- Upcoming Hackathons Section -->
+    <div id="past"></div>
+
+    <h2 class="tt-bold tt-lg">Upcoming Hackathons</h2>
+    <div class="container_slider">
+      {% if upcoming_hackathons %}
+      <section
+        id="mySliderUpcoming"
+        class="splide"
+        aria-label="Upcoming Hackathons"
+      >
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <i class="fa-solid fa-chevron-left fa-2xl"></i>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <i class="fa-solid fa-chevron-right fa-2xl"></i>
+          </button>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for hackathon in upcoming_hackathons %}
+            <li class="splide__slide card">
+              <div class="box">
+                <div class="imgBox">
+                  <img
+                    src="{% if hackathon.image %}{{ hackathon.image.url }}{% else %}{% static 'images/none_image.png' %}{% endif %}"
+                    alt="{{ hackathon.title }}"
+                  />
+                </div>
+                <div class="content">
+                  <h2 class="tt-thin">{{ hackathon.title }}</h2>
+                  <a href="{% url 'events:event-detail' hackathon.id %}"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title tt-thin">{{ hackathon.title }}</h5>
+                <p>{{ hackathon.summary }}</p>
+                <a
+                  href="{% url 'events:event-detail' hackathon.id %}"
+                  class="btn btn_cart"
+                  >Go somewhere</a
+                >
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+      {% else %}
+      <p class="no-hackathons-message ds">
+        No upcoming hackathons at the moment.
+      </p>
+      {% endif %}
+    </div>
+
+    <!-- Past Hackathons Section -->
+    <h2 class="tt-bold tt-lg">Past Hackathons</h2>
+    <div class="container_slider">
+      <section id="mySliderPast" class="splide" aria-label="Past Hackathons">
+        {% if past_hackathons %}
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <i class="fa-solid fa-chevron-left fa-2xl"></i>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <i class="fa-solid fa-chevron-right fa-2xl"></i>
+          </button>
+        </div>
+        <div class="splide__track">
+          <ul class="splide__list">
+            {% for hackathon in past_hackathons %}
+            <li class="splide__slide card">
+              <div class="box">
+                <div class="imgBox">
+                  <img
+                    src="{% if hackathon.image %}{{ hackathon.image.url }}{% else %}{% static 'images/none_image.png' %}{% endif %}"
+                    alt="{{ hackathon.title }}"
+                  />
+                </div>
+                <div class="content">
+                  <h2 class="tt-thin">{{ hackathon.title }}</h2>
+                  <a href="{% url 'events:event-detail' hackathon.id %}"
+                    >Go somewhere</a
+                  >
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 id="organizers" class="card-title tt-thin">
+                  {{ hackathon.title }}
+                </h5>
+                <p>{{ hackathon.summary }}</p>
+                <a
+                  href="{% url 'events:event-detail' hackathon.id %}"
+                  class="btn btn_cart"
+                  >Go somewhere</a
+                >
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% else %}
+        <p class="no-hackathons-message ds">No past hackathons available.</p>
+        {% endif %}
+      </section>
+    </div>
+  </ul>
+
+  <section
+    class="wow fadeIn"
+    style="visibility: visible; animation-name: fadeIn"
+  >
+    <div class="container">
+      <div class="row justify-content-center">
+        <h5 class="tt tt-bold text-center">Organizers</h5>
+      </div>
+      <div class="row partners-block justify-content-center">
+        <img
+          class="partner-img m-3 col-12 col-md-6 col-lg-4"
+          src="{% static 'images/mohirdev.png' %}"
+        />
+        <img
+          class="partner-img m-3 col-12 col-md-6 col-lg-4"
+          src="{% static 'images/tuit.png' %}"
+        />
+        <img
+          id="participation"
+          class="partner-img m-3 col-12 col-md-6 col-lg-4"
+          src="{% static 'images/itpark.png' %}"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================== Participation start ===================================== -->
+  <div class="row justify-content-center text-center">
+    <h2 class="tt tt-bold text-center">Participation</h2>
+    <div
+      class="col-12 col-md-6 mb-4 wow fadeInUp"
+      style="animation-name: fadeInUp"
+    >
+      <div class="feature-box p-4 shadow-sm rounded bg-white">
+        <div class="icon mb-3">
+          <i class="far fa-clock fa-2x"></i>
+        </div>
+        <p class="ds">
+          Full participation in a 72-hour offline hackathon (participants must
+          provide themselves with a stable Internet connection).
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="col-12 col-md-6 mb-4 wow fadeInUp"
+      style="animation-delay: 0.2s; animation-name: fadeInUp"
+    >
+      <div class="feature-box p-4 shadow-sm rounded bg-white">
+        <div class="icon mb-3">
+          <i class="fa-brands fa-github fa-2x"></i>
+        </div>
+        <p class="ds">
+          Creation of a digital solution (application, service, device) using
+          open data during the event with uploading the code to GitHub.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="col-12 col-md-6 mb-4 wow fadeInUp"
+      style="animation-delay: 0.4s; animation-name: fadeInUp"
+    >
+      <div class="feature-box p-4 shadow-sm rounded bg-white">
+        <div class="icon mb-3">
+          <i class="fa-solid fa-users fa-2x"></i>
+        </div>
+        <p class="ds">
+          If you participate in a team - your team should consist of no more
+          than three participants, and one of the participants must submit a
+          team application for participation.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- ===================================== Participation end ===================================== -->
+</div>
+{% endblock %}

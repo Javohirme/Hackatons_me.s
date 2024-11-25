@@ -1,0 +1,899 @@
+/* desktop version: [1200px; inf) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*::selection {
+  color: var(--orange);
+  background-color: var(--primary_green);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: repeating-radial-gradient(
+      circle at 0px 0px,
+      transparent 0px,
+      rgb(255, 255, 255) 6px
+    ),
+    repeating-linear-gradient(rgba(183, 183, 204, 0.333), rgb(183, 183, 204));
+}
+body::-webkit-scrollbar {
+  width: 14px;
+  background-color: transparent;
+  background-image: repeating-radial-gradient(
+      circle at 0px 0px,
+      transparent 0px,
+      rgb(255, 255, 255) 6px
+    ),
+    repeating-linear-gradient(
+      rgba(183, 183, 204, 0.333),
+      rgb(183, 183, 204, 0.333)
+    );
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary_blue);
+  border: 2px solid var(--white);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary_green);
+}
+
+ol,
+ul {
+  padding-left: 0;
+}
+/* =============================== header start =============================== */
+header {
+  background-color: var(--white);
+
+  background-image: repeating-radial-gradient(
+      circle at 0px 0px,
+      transparent 0px,
+      rgb(255, 255, 255) 6px
+    ),
+    repeating-linear-gradient(
+      rgba(183, 183, 204, 0.333),
+      rgb(183, 183, 204, 0.333)
+    );
+}
+
+.header__logo {
+  margin: 0 20px;
+  width: 60px;
+  height: 60px;
+}
+.header__logo_title {
+  font-family: "MochiyPopOne400";
+  font-weight: 400;
+}
+
+.header {
+  padding: 20px 5px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 200;
+  transition-duration: 0.2s;
+}
+
+.header.sticky {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.08);
+}
+
+.header__row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo a img {
+  justify-content: start;
+  transition-duration: 0.2s;
+}
+
+.header__logo a img:hover {
+  transform: scale(1.1);
+}
+
+.header__menu ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 65px;
+}
+
+.header__menu ul li,
+.privacy-policy_bg ul li {
+  list-style: none;
+}
+.header__menu ul li a {
+  text-decoration: none;
+  font-family: "MochiyPopOne400";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+  color: var(--primary_blue);
+  transition-duration: 0.2s;
+  position: relative;
+}
+
+.header__menu ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--primary_green);
+  border-radius: 2px;
+  transition-duration: 0.2s;
+}
+
+.header__menu ul li a:hover {
+  color: var(--primary_green);
+}
+
+.header__menu ul li a:hover::before {
+  width: 100%;
+}
+
+.header__iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header__iconBox a {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--primary_blue);
+  transition-duration: 0.2s;
+}
+
+.btn_out:hover,
+.btn_out:hover i {
+  color: var(--deepred);
+}
+
+.btn_in:hover,
+.btn_in:hover i {
+  border-color: var(--primary_green);
+  color: var(--primary_green);
+}
+
+.btn_add:hover,
+.btn_add:hover i {
+  color: var(--orange);
+}
+
+.header__iconBox i {
+  padding: 4px;
+  text-align: center;
+  font-size: 20px;
+  transition-duration: 0.2s;
+}
+
+.header__border {
+  display: inline-block;
+  padding-left: 15px;
+  position: relative;
+}
+
+.header__border::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #f1e0dd;
+}
+
+.header__iconBox__btn {
+  font-family: "RocknRollOne";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.dropdown-menu_me li div,
+.btn__account {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+/* =============================== header end =============================== */
+
+/* ================= login_page start ========================================== */
+
+.login_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_page_alert {
+  font-family: "RocknRollOne";
+  font-weight: normal;
+  font-style: normal;
+  background-color: var(--deepred);
+  color: beige;
+}
+/* ================= login_page end ==========================================*/
+
+/* =================================  Slider start ================================= */
+.container_slider {
+  width: 100%;
+}
+
+.splide__track {
+  height: 360px;
+}
+/* Silidet buttons start */
+.splide__arrows button {
+  margin: 10px -50px;
+}
+
+.splide__arrow {
+  background: none;
+}
+
+.splide__arrow {
+  width: 50px;
+  height: 50px;
+}
+
+.splide__pagination {
+  position: relative;
+}
+
+.splide__pagination li {
+  margin: 20px 10px 0;
+  color: var(--primary_blue);
+}
+
+.splide__pagination__page.is-active {
+  background-color: var(--primary_blue);
+}
+
+/* Silidet buttons end */
+
+.splide__slide {
+  border-color: var(--blue);
+  border-style: dashed;
+  background-image: radial-gradient(
+    circle,
+    rgba(67, 99, 107, 0.473) 51%,
+    rgba(187, 187, 187, 0.733) 100%
+  );
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  min-height: 300px;
+  min-width: 300px;
+  background-color: #d5e7cd;
+}
+
+.container_slider .box {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #000;
+  float: center;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.container_slider .box::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: scaleX(0);
+  opacity: 0;
+  z-index: 1;
+}
+
+.container_slider .box:hover::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.container_slider .box::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transform: scaleY(0);
+  opacity: 0;
+  z-index: 1;
+}
+
+.container_slider .box:hover::after {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.card-body {
+  width: 50%;
+}
+
+.container_slider .box .imgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container_slider .box .imgBox img {
+  width: 300px;
+  transition: 0.5s;
+}
+
+.container_slider .box:hover .imgBox img {
+  opacity: 0.2;
+  transform: scale(1.2);
+}
+
+.container_slider .box .content {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.container_slider .box .content h2 {
+  margin: 0 0 10px;
+  color: #fff;
+  transform: translateY(-50px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.container_slider .box .content a {
+  margin: 0;
+  padding: 0;
+  color: var(--blue);
+  transition: 0.5s;
+  transform: translateY(50px);
+  opacity: 0;
+  visibility: hidden;
+  text-decoration: none;
+}
+
+.container_slider .box:hover .content h2,
+.container_slider .box:hover .content a {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+  transition-delay: 0.2s;
+  text-decoration: none;
+}
+
+.card-body h5 {
+  height: 20%;
+  color: var(--primary_green);
+  text-shadow: 3px 2px 10px var(--gray);
+  text-align: center;
+}
+
+.card-body p {
+  color: var(--deep_teal);
+  font-family: "Noto600";
+  font-weight: 600;
+  height: 50%;
+}
+
+.card-body a {
+  width: 100%;
+}
+
+.card {
+  flex-flow: row nowrap;
+}
+
+/* =================================  Slider  end =================================  */
+
+/* =================================  Home  start =================================  */
+.no-hackathons-message {
+  background-color: var(--ash-gray);
+  background: linear-gradient(45deg, #a8edae, #d9d6fe);
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  border-radius: 8px;
+  padding: 40px;
+}
+
+/* =================================  Home  end =================================  */
+/* =================================  Footer  start =================================  */
+footer {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 70px 20px;
+}
+.footer__contactBox {
+  padding: 30px;
+}
+
+.footer__contactBox ul,
+.footer__linkBox ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer__linkBox ul {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+.footer__contactBox ul li,
+.footer__linkBox ul li {
+  text-align: center;
+  list-style: none;
+}
+
+.footer__contactBox ul li a {
+  text-decoration: none;
+}
+
+.footer__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.footer__logo img {
+  transition-duration: 0.2s;
+  width: 100px;
+}
+.footer__logo img:hover {
+  transform: scale(1.1);
+}
+
+/* ===================================   footer start =================================== */
+
+.form-container {
+  margin: 10px 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.form-container .hidden {
+  display: none;
+}
+/* =================================  Footer  end =================================  */
+/* =================================  support  start =================================  */
+
+.conditions {
+  margin: 0;
+  padding: 20px;
+}
+
+.conditions .container {
+  margin: auto;
+  padding: 20px;
+}
+
+.conditions h5 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.conditions .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -10px;
+}
+
+.conditions .col {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .conditions .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+.conditions .feature-box {
+  height: 200px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.264);
+  text-align: center;
+}
+
+.conditions .feature-box i {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.conditions .feature-box p {
+  font-size: 16px;
+  margin: 0;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Animation for fadeIn effect */
+.conditions .fadeInUp {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+.conditions .fadeInUp.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.conditions .fadeInUp.delay-2 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =================================  support  end =================================  */
+/* =================================  Contact  start =================================  */
+.custom-form {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.custom-form input,
+.custom-form textarea {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+}
+
+.custom-form label {
+  font-family: "MochiyPopOne400";
+  color: var(--black);
+}
+
+.custom-form button {
+  font-family: "RocknRollOne";
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* =================================  Contact  end =================================  */
+/* =========  Overview  start ==============  */
+.present_btn {
+  font-family: "MochiyPopOne400";
+  color: var(--blue);
+}
+
+.present_btn:hover,
+.nav-link.active {
+  color: var(--primary_blue) !important;
+}
+
+.nav-link.active {
+  background-color: #ffffff6b !important;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+}
+
+.tab-pane_ovw {
+  border-radius: 15px;
+  word-spacing: 12px;
+  padding: 15px;
+  background: var(--white);
+}
+
+.imgBox_event_detail {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin: 10px;
+}
+
+.imgBox_event_detail img {
+  border: 5px solid var(--deep_teal);
+  -webkit-box-shadow: -4px 4px 21px 7px rgba(34, 60, 80, 0.6);
+  -moz-box-shadow: -4px 4px 21px 7px rgba(34, 60, 80, 0.6);
+  box-shadow: -4px 4px 21px 7px rgba(34, 60, 80, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imgBox_event_detail img:hover {
+  transform: translateY(-5px);
+}
+/* ==========  Overview  end ============  */
+/* ==========  Privacy & Policy  start ============  */
+.privacy-policy_bg {
+  border: 1px solid var(--primary_blue);
+  border-radius: 30px;
+  padding: 30px;
+  background-color: var(--white);
+}
+
+.privacy-policy_col h2 {
+  height: 30%;
+}
+
+.privacy-policy_bg p,
+.privacy-policy_bg h2,
+.privacy-policy_bg li {
+  color: var(--primary_blue);
+  text-align: center;
+}
+
+.privacy-policy_bg p {
+  margin-top: 10px;
+  color: var(--charcoal_blue);
+  font-weight: 700;
+}
+
+.privacy-policy_bg h2,
+.lead {
+  padding: 10px;
+  background-color: #d0cfcf98;
+  font-family: "Noto600";
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.privacy-policy_bg li {
+  font-family: "MochiyPopOne400";
+  font-weight: 100;
+  line-height: 26px;
+  color: #767170;
+}
+
+.last_privacy {
+  margin-top: 40px;
+}
+/* ==========  Privacy & Policy  end ============  */
+/* ==========  Destination  start ============  */
+
+.destination {
+  background-color: var(--white);
+  border-radius: 20px;
+}
+
+.destination img {
+  border-radius: 20px;
+}
+
+/* ==========  Destination  end ============  */
+/* Like Button Form  start */
+.btn-success {
+  color: var(--deepred);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.btn-outline-success {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--deepred);
+}
+/* Like Button Form  end */
+
+/* ==========  Comments Tab  start ============  */
+.cart_ideas {
+  width: 300px;
+  border: 1px solid var(--primary_blue);
+  background-color: var(--white);
+  border-radius: 20px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.cart_ideas h5 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: "MochiyPopOne400";
+  color: var(--primary_blue);
+  margin: 0;
+}
+
+.cart_ideas span {
+  color: var(--primary_blue);
+}
+
+.cart_ideas p {
+  font-family: "RocknRollOne";
+}
+
+.ideas-tab-content {
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ideas-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ideas-form .form-label {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary_blue);
+}
+
+.ideas-form input,
+.ideas-form textarea,
+.ideas-form select {
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: var(--primary_blue);
+}
+
+.ideas-form input:focus,
+.ideas-form textarea:focus,
+.ideas-form select:focus {
+  outline: none;
+  border-color: #071728;
+  box-shadow: 0 0 5px rgba(14, 38, 63, 0.25);
+}
+
+.ideas-form .form-text {
+  font-size: 0.85rem;
+  color: var(--primary_blue);
+}
+
+.ideas-form .invalid-feedback {
+  font-size: 0.85rem;
+  color: #dc3545;
+}
+
+.ideas-submit-btn {
+  background: var(--charcoal_blue);
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.ideas-submit-btn:hover {
+  background: var(--ash-gray);
+  transform: translateY(-2px);
+}
+
+/* ==========  Comments Tab  end ============  */
+/* ===================== Organizers start ==============  */
+.partner-img {
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-img:hover {
+  transform: translateY(-5px);
+}
+
+/* ===================== Organizers end ==============  */
+/* =================== Participation start  =================== */
+.feature-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 255, 0.1);
+  color: var(--primary_blue);
+}
+/* =================== Participation end  =================== */

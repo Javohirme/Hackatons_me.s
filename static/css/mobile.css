@@ -1,0 +1,36 @@
+/* mobile version: [360px; 575px] */
+@media (max-width: 575.5px) {
+  /* header start */
+  .header {
+    padding: 10px;
+  }
+
+  .header__menu ul {
+    gap: 20px;
+  }
+
+  .header__close {
+    top: 20px;
+    right: 20px;
+  }
+  /* header end */
+
+  /* cart_body start*/
+  .card-body a {
+    width: 100%;
+  }
+  /* cart_body end*/
+}
+
+/* =================================  Contact  start =================================  */
+
+@media (max-width: 576px) {
+  .custom-form {
+    padding: 20px;
+  }
+
+  .custom-form button {
+    font-size: 1rem;
+  }
+}
+/* =================================  Contact  end =================================  */

@@ -1,0 +1,11 @@
+@import "var.css";
+@import "desktop.css";
+@import "laptopLarge.css";
+@import "laptop.css";
+@import "tablet.css";
+@import "mobile.css";
+
+.temp {
+  background-color: lightblue;
+  border: 1px solid #000;
+}

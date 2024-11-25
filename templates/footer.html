@@ -1,0 +1,104 @@
+{% load static %}
+<!-- ==================== footer start ==================== -->
+{% block footer %}
+<div class="container">
+  <footer class="footer">
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4 footer__contactBox">
+        <div class="d-flex justify-content-center">
+          <a class="footer__logo" href="{% url 'events:home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />
+          </a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <p class="ds my-3">Action - is the only way to a result</p>
+        </div>
+        <ul>
+          <li>
+            <a href="tel:0123456987">
+              <i class="fa-solid fa-phone-volume"></i>
+              <span class="ds">+998 99 456 7987</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="ds">Hackathons_uz</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/@Javohir.me.s">
+              <i class="fa-brands fa-youtube"></i>
+              <span class="ds">Hackogi_uz</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 col-xl-2 footer__linkBox">
+        <h5 class="tt tt-sm my-4 text-center">Quick Links</h5>
+
+        <ul>
+          <li><a href="{% url 'about' %}" class="ds">- About Us</a></li>
+          <li>
+            <a href="{% url 'destinations' %}" class="ds">- Destinations</a>
+          </li>
+          <li>
+            <a href="{% url 'events:home' %}#active" class="ds"
+              >- Latest Blog</a
+            >
+          </li>
+          <li><a href="{% url 'team' %}" class="ds">- Our Team</a></li>
+          <li><a href="{% url 'contact' %}" class="ds">- Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-3 col-xl-2 footer__linkBox">
+        <div class="d-flex justify-content-center my-4">
+          <h5 class="tt tt-sm">Support</h5>
+        </div>
+        <ul>
+          <li>
+            <a href="{% url 'support' %}" class="ds">- Customer Support</a>
+          </li>
+          <li>
+            <a href="{% url 'privacy_policy' %}" class="ds"
+              >- Privacy & Policy</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'privacy_policy' %}" class="ds"
+              >- Terms & Condition</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'events:home' %}#participation" class="ds"
+              >- Participation</a
+            >
+          </li>
+          <li>
+            <a href="{% url 'events:home' %}#organizers" class="ds"
+              >- Organizers</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class="offset-md-2 offset-lg-3 offset-xl-0 col-12 col-md-8 col-lg-6 col-xl-4"
+      >
+        <div class="d-flex justify-content-center my-4">
+          <h5 class="tt tt-sm">Suggestions</h5>
+        </div>
+
+        <div class="d-flex justify-content-center mb-4">
+          <a class="btn btn_cart" href="{% url 'contact' %}">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+{% endblock footer %}
+<!-- ==================== footer end ==================== -->

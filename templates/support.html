@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} Team {% endblock title %}
+<!--  -->
+{% load static %} {% block content %}
+<section class="conditions">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h5 class="tt tt-bold">
+          Conditions for participation in the hackathon
+        </h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-md-6 fadeInUp">
+        <div class="feature-box">
+          <i class="far fa-clock"></i>
+          <p class="ds">
+            Full participation in the 72-hour hackathon in an offline format
+          </p>
+        </div>
+      </div>
+      <div class="col col-md-6 fadeInUp delay-1">
+        <div class="feature-box">
+          <i class="fa-regular fa-window-restore"></i>
+          <p class="ds">
+            Creation of a digital solution (application, service, device) using
+            open data during the hackathon with the code uploaded to GitHub
+          </p>
+        </div>
+      </div>
+      <div class="col col-md-6 fadeInUp delay-2">
+        <div class="feature-box">
+          <i class="fa-solid fa-users"></i>
+          <p class="ds">
+            When participating in a team - no more than three people and one of
+            the participants must submit a team application for participation
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

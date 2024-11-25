@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} Meet Our Team {% endblock title %}
+<!--  -->
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="tt tt-bold text-center">Meet Our Team</h1>
+    <p class="ds">Discover the brilliant minds behind our success</p>
+  </div>
+
+  <div class="row g-4 d-flex justify-content-center align-items-center">
+    {% for member in team_members %}
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="border-1 shadow h-100 text-center bg-white">
+        <div
+          class="position-relative d-flex justify-content-center align-items-center"
+        >
+          <img
+            src="{{ member.photo.url }}"
+            alt="{{ member.name }}"
+            class="card-img-top rounded-circle mx-auto mt-4"
+            style="
+              width: 120px;
+              height: 120px;
+              object-fit: cover;
+              border: 4px solid #a7a5a5;
+            "
+          />
+        </div>
+        <div class="badge text-center tt-team-bage mt-2">{{ member.role }}</div>
+
+        <div class="mt-2 d-flex justify-content-center align-items-center">
+          <h5 style="color: var(--deep_teal)">{{ member.name }}</h5>
+        </div>
+
+        <div class="card-footer bg-white border-0">
+          <p style="height: 50px" class="text-muted text-center my-3 mx-3">
+            {{ member.bio }}
+          </p>
+          <a
+            href="{% url 'contact' %}"
+            style="width: calc(100% - 20px)"
+            class="btn btn_cart my-3"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+<!--  -->
+{% block title %} Success {% endblock title %}
+<!--  -->
+{% block content %}
+<div class="text-center mt-5 ">
+  <h2 class="tt tt-sm">Thank you! Your message has been received.</h2>
+  <a class="btn btn_cart my-2" href="{% url 'events:home' %}">Back to Home</a>
+</div>
+{% endblock %}
